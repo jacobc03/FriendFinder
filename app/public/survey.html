@@ -14,7 +14,16 @@
 	<!-- Chosen -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
-
+<style>
+	.container{
+		 background-image:url(https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/US-NationalParkService-ShadedLogo.svg/786px-US-NationalParkService-ShadedLogo.svg.png);
+    background-position:right;
+    background-repeat: no-repeat;
+	}
+	.hr{
+		margin-bottom: 30px;
+	}
+</style>
 </head>
 <body>
 
@@ -27,8 +36,8 @@
 		<h4>Name (Required)</h4>
 		<input type="text" name="" id="name" class="form-control" required >
 	
-		<hr>
-	<div style="columns: 2;">
+		<hr class="hr">
+	
 		<h3><strong>Question 1</strong></h3>
 		<h4>You prefer to be in Mountains over the Ocean?</h4>
 	 	<select data-placeholder="" class="chosen-select" id="q1">
@@ -148,9 +157,9 @@
 
 		<br>
 		<br>
-	</div>
+	
 		<!-- Submit Button -->
-		<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" style="width: 100px;"><i class="fa fa-check-circle" aria-hidden="true"></i>
+		<button type="submit" class="btn btn-primary btn-lg btn-block center-block" id="submit" style="width: 100px;"><i class="fa fa-check-circle" aria-hidden="true"></i>
  Submit</button>
 
 		<hr>
@@ -167,6 +176,7 @@
 	      <div class="modal-body">
 	        <h2 id="matchName"></h2>
 	        <img id="matchImg" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTHqsoFmaWu4SqMYCFluQVorlhN-166vCZGbD40GQ6aF4_4rpnRsQ" alt="">
+	        <h2 id="matchDescription"></h2>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -229,6 +239,7 @@
 	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
 	    		$("#matchName").text(data.name);
 	    		$('#matchImg').attr("src", data.photo);
+	    		$("#matchDescription").text(data.description);
 
 		    	// Show the modal with the best match 
 		    	$("#resultsModal").modal('toggle');
